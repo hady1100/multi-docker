@@ -1,0 +1,12 @@
+sudo: required
+services:
+  - docker
+before_install:
+-  dockr build -t hady1100/react-test -f ./client/DockerFile.dev ./client
+script:
+  - docker run hady1100/react-test npm test -- --coverage
+after_success:
+  - docker build -t hady1100/multi-client ./client
+  - docker build -t hady1100/multi-nginx ./nginx
+  - docker build -t hady1100/multi-server ./server
+  - docker build -t hady1100/multi-worker ./worker
