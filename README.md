@@ -2,6 +2,8 @@
 
 An over engineered fibbonacci calculator.
 
+Fully containerized with CI/CD for deployment
+
 To run
 
 `docker-compse up`
